@@ -28,6 +28,13 @@ jobs:
           chmod +x download_bootstraps.sh
           ./download_bootstraps.sh || echo "Bootstrap download skipped"
 
+      - name: Build libjailbreak
+        working-directory: BaseBin
+        run: |
+          mkdir -p .build
+          brew install libarchive
+          cd libjailbreak && make
+
       - name: Build Xcode Project
         working-directory: Application
         run: |
