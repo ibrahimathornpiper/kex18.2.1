@@ -11,13 +11,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
 
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode_16.app
 
       - name: Install Dependencies
         run: |
-          brew install ldid zstd make
+          brew install ldid zstd gnu-sed
 
       - name: Download Bootstrap Files
         working-directory: Application/Dopamine/Resources
@@ -25,24 +28,7 @@ jobs:
           chmod +x download_bootstraps.sh
           ./download_bootstraps.sh || echo "Bootstrap download skipped"
 
-      - name: Build libjailbreak
-        working-directory: BaseBin/libjailbreak
-        run: make
-
-      - name: Build DarkswordKexploit
-        working-directory: Application
-        run: |
-          xcodebuild -project Dopamine.xcodeproj \
-            -scheme DarkswordKexploit \
-            -configuration Release \
-            -sdk iphoneos \
-            -derivedDataPath build \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            build
-
-      - name: Build Dopamine App
+      - name: Build Xcode Project
         working-directory: Application
         run: |
           xcodebuild -project Dopamine.xcodeproj \
