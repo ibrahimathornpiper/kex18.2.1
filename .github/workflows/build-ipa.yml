@@ -64,6 +64,12 @@ jobs:
           make package || touch libkrw-dopamine.deb
           cd ../..
 
+      - name: Rebuild libjailbreak
+        working-directory: BaseBin
+        run: |
+          (cd libjailbreak && make)
+          cp libjailbreak/libjailbreak.dylib .build/
+
       - name: Build Xcode Project
         working-directory: Application
         run: |
