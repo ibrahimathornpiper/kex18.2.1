@@ -47,8 +47,8 @@ jobs:
           cp ChOma/output/ios/lib/libchoma.a .build/
           cp ChOma/output/ios/include/choma/*.h .include/choma/
           cp ChOma/output/ios/include/choma/*.h _external/include/choma/
-          cd libjailbreak && make
-          cp libjailbreak.dylib ../.build/
+          (cd libjailbreak && make)
+          cp libjailbreak/libjailbreak.dylib .build/
 
       - name: Build BaseBin
         working-directory: BaseBin
@@ -67,12 +67,11 @@ jobs:
       - name: Build Xcode Project
         working-directory: Application
         run: |
-          # Force recreate libjailbreak symlinks with absolute paths
+          # Force recreate libjailbreak symlinks
           cd ../BaseBin/libjailbreak
           rm -f *.h
-          SRCDIR="$(pwd)/src"
           for f in src/*.h; do
-            ln -sf "$SRCDIR/$(basename "$f")" "$(basename "$f")"
+            ln -sf "$(pwd)/$f" "$(basename "$f")"
           done
           ls -la *.h | head -5
           cd ../../Application
