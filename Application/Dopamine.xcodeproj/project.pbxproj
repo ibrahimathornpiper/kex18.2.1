@@ -2299,7 +2299,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../BaseBin/.include";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../BaseBin/libjailbreak/src",
+					"$(SRCROOT)/../BaseBin/_external/include",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../BaseBin/.build",
@@ -2361,7 +2364,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../BaseBin/.include";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../BaseBin/libjailbreak/src",
+					"$(SRCROOT)/../BaseBin/_external/include",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/../BaseBin/.build",
