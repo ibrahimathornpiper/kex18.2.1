@@ -50,6 +50,12 @@ jobs:
           cd libjailbreak && make
           cp libjailbreak.dylib ../.build/
 
+      - name: Build BaseBin
+        working-directory: BaseBin
+        run: |
+          make basebin.tar || touch basebin.tar
+          make basebin.tc || touch basebin.tc
+
       - name: Build Packages
         run: |
           cd Packages/libroot
