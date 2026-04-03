@@ -38,10 +38,10 @@ jobs:
         working-directory: BaseBin
         run: |
           mkdir -p .build
-          mkdir -p _external/include/choma
+          mkdir -p .include/choma
           brew install libarchive
           cp ChOma/output/ios/lib/libchoma.a .build/
-          cp ChOma/output/ios/include/choma/*.h _external/include/choma/
+          cp ChOma/output/ios/include/choma/*.h .include/choma/
           cd libjailbreak && make
           cp libjailbreak.dylib ../.build/
 
