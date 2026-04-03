@@ -34,11 +34,12 @@ jobs:
           xcodebuild -project Dopamine.xcodeproj \
             -scheme Dopamine \
             -configuration Release \
-            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
             -derivedDataPath build \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
+            ONLY_ACTIVE_ARCH=NO \
             build
 
       - name: Package IPA
