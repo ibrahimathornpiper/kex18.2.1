@@ -28,11 +28,19 @@ jobs:
           chmod +x download_bootstraps.sh
           ./download_bootstraps.sh || echo "Bootstrap download skipped"
 
+      - name: Build ChOma
+        working-directory: BaseBin/ChOma
+        run: |
+          brew install openssl
+          make TARGET=ios DISABLE_TESTS=1
+
       - name: Build libjailbreak
         working-directory: BaseBin
         run: |
           mkdir -p .build
           brew install libarchive
+          cp ChOma/output/ios/lib/libchoma.a .build/
+          cp -r ChOma/output/ios/include/choma ../.include/choma 2>/dev/null || mkdir -p ../.include/choma && cp ChOma/output/ios/include/choma/*.h ../.include/choma/
           cd libjailbreak && make
 
       - name: Build Xcode Project
