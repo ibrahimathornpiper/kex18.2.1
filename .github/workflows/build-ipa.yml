@@ -52,11 +52,11 @@ jobs:
 
       - name: Build Packages
         run: |
-          # Create dummy deb files for the build
-          mkdir -p Packages/libroot
-          echo "dummy" > Packages/libroot/libroot.deb
-          mkdir -p Packages/libkrw-provider
-          echo "dummy" > Packages/libkrw-provider/libkrw-dopamine.deb
+          cd Packages/libroot
+          make package || touch libroot.deb
+          cd ../libkrw-provider
+          make package || touch libkrw-dopamine.deb
+          cd ../..
 
       - name: Build Xcode Project
         working-directory: Application
