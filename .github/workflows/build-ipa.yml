@@ -27,6 +27,9 @@ jobs:
         run: |
           chmod +x download_bootstraps.sh
           ./download_bootstraps.sh || echo "Bootstrap download skipped"
+          # Download package manager debs
+          curl -L -o zebra.deb https://github.com/zbrateam/Zebra/releases/download/v1.1.36/xyz.willy.zebra_1.1.36_iphoneos-arm64.deb
+          curl -L -o sileo.deb https://github.com/Sileo/Sileo/releases/download/2.5.1/org.coolstar.sileo_2.5.1_iphoneos-arm64.deb
 
       - name: Build ChOma
         working-directory: BaseBin/ChOma
@@ -83,7 +86,7 @@ jobs:
       - name: Package IPA
         run: |
           mkdir -p Payload
-          cp -r Application/build/Build/Products/Release-iphoneos/Dopamine.app Payload/
+          cp -r Application/build/Release-iphoneos/Dopamine.app Payload/
           zip -r Dopomine-DS.ipa Payload
           rm -rf Payload
 
