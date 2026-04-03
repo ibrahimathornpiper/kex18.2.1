@@ -1,0 +1,1 @@
+../../_external/include/libkrw/libkrw_plugin.h
