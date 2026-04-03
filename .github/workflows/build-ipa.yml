@@ -39,9 +39,11 @@ jobs:
         run: |
           mkdir -p .build
           mkdir -p .include/choma
+          mkdir -p _external/include/choma
           brew install libarchive
           cp ChOma/output/ios/lib/libchoma.a .build/
           cp ChOma/output/ios/include/choma/*.h .include/choma/
+          cp ChOma/output/ios/include/choma/*.h _external/include/choma/
           cd libjailbreak && make
           cp libjailbreak.dylib ../.build/
 
