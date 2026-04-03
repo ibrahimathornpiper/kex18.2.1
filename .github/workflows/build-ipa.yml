@@ -62,6 +62,8 @@ jobs:
           make package || touch libroot.deb
           cd ../libkrw-provider
           make package || touch libkrw-dopamine.deb
+          cd ../basebin-link
+          make package || touch basebin-link.deb
           cd ../..
 
       - name: Rebuild libjailbreak
