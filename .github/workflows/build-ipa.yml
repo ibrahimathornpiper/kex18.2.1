@@ -48,6 +48,10 @@ jobs:
       - name: Build Xcode Project
         working-directory: Application
         run: |
+          # Recreate libjailbreak symlinks in case git checkout didn't handle them
+          cd ../BaseBin/libjailbreak
+          for f in src/*.h; do ln -sf "$f" "$(basename "$f")" 2>/dev/null; done
+          cd ../../Application
           xcodebuild -project Dopamine.xcodeproj \
             -scheme Dopamine \
             -configuration Release \
