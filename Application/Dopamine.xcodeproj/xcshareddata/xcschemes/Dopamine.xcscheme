@@ -39,6 +39,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8C7198142ABF0E82003C6658"
+            BuildableName = "Dopamine.app"
+            BlueprintName = "Dopamine"
+            ReferencedContainer = "container:Dopamine.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

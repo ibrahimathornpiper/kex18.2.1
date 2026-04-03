@@ -59,10 +59,13 @@ jobs:
           done
           ls -la *.h | head -5
           cd ../../Application
+          # List available destinations for debugging
+          xcodebuild -project Dopamine.xcodeproj -scheme Dopamine -showdestinations || true
+          # Try building with generic iOS destination
           xcodebuild -project Dopamine.xcodeproj \
-            -target Dopamine \
+            -scheme Dopamine \
             -configuration Release \
-            -sdk iphoneos \
+            -destination 'platform=iOS' \
             -derivedDataPath build \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
