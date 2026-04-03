@@ -2301,6 +2301,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../BaseBin",
+					"$(SRCROOT)/../BaseBin/libjailbreak/src",
 					"$(SRCROOT)/../BaseBin/_external/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -2366,6 +2367,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../BaseBin",
+					"$(SRCROOT)/../BaseBin/libjailbreak/src",
 					"$(SRCROOT)/../BaseBin/_external/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
